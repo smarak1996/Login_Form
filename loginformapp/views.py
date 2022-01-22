@@ -9,17 +9,13 @@ def login_view(request):
         email = request.POST['email'],
         password = request.POST['password']
 
-        if LoginData.objects.filter(email = email).exists():
-            messages.warning(request, 'Email already exists!!!')
-            return render(request, 'login.html')
+        if LoginData.objects.filter(email = email, password = password).exists():
+            
+            return render(request, 'success.html')
 
         else:
 
-            LoginData(
-                email = email,
-                password = password
-            ).save()
-            messages.success(request, 'Login Successfull!!!')
+            messages.warning(request, 'Invalid Email Address!!!')
             return render(request, 'login.html')
 
     
