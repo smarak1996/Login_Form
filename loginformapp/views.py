@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import LoginData, SignUpData
-from django.contrib import messages 
+from .models import LoginData
+from django.contrib import messages
 
 
 def login_view(request):
     if request.method == 'POST':
-        
-        email = request.POST['email'],
+    
+        email = request.POST['email']
         password = request.POST['password']
 
         if LoginData.objects.filter(email = email, password = password).exists():
@@ -17,7 +17,6 @@ def login_view(request):
 
             messages.warning(request, 'Invalid Email Address!!!')
             return render(request, 'login.html')
-
     
     else:
 
@@ -25,11 +24,8 @@ def login_view(request):
 
 def sign_up_view(request):
     if request.method == 'POST':
-        SignUpData(
-            first_name = request.POST['fname'],
-            last_name = request.POST['lname'],
+        LoginData(
             email = request.POST['email'],
-            phone_number = request.POST['pnumber'],
             password = request.POST['password']
         ).save()
 
