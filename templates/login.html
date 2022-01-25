@@ -11,7 +11,7 @@
 
         }
 
-        p{
+        #paragraph1{
 
             font-family: cooper;
             color: maroon;
@@ -35,13 +35,19 @@
             <div class="offset-md-3 col-md-6">
                 <form class="border border-light p-5" method="POST">
                     {% csrf_token %}
-                    <p class="h4 mb-4 text-center">Log in</p>
+                    <p class="h4 mb-4 text-center" id = "paragraph1">Log in</p>
                 
-                    <input type="email" name = "email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail Address" autocomplete="off">
+                    <input type="email" name = "email" class="form-control mb-4" placeholder="E-mail Address" autocomplete="off">
                 
-                    <input type="password" name = "password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+                    <input type="password" name = "password" class="form-control mb-4" placeholder="Password">
                 
                     <button class="btn btn-info btn-block my-4" type="submit">Log in</button>
+
+                    <div class="text-center">
+                        <p>Not a member?
+                            <a href="sign_up">Sign Up</a>
+                        </p>
+                    <div>
                 
                 </form>
             </div>
